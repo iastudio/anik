@@ -1,0 +1,18 @@
+- var active = 1
+- var pageName = 'Главная'
+include includes/settings
+doctype html
+html(lang='ru').no-js
+  head
+    include includes/head
+    //- Uncomment for LiveReload
+    //-| <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  body
+    .page-wrap
+      include includes/top-bar
+      include includes/header
+      include includes/slider
+      main
+
+      include includes/footer
+    include includes/tail

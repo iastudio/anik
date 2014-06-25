@@ -1,0 +1,20 @@
+// Uncomment for responsive:
+
+// @import "gridle/gridle";
+
+// @include gridle_setup((
+// 	context: 12,
+// 	gutter-width: 20px
+// ));
+
+// @include gridle_register_clear_each(2, left);
+// @include gridle_register_clear_each(12, both);
+
+// @include gridle_register_default_states();
+
+.container {
+	@include center($max_width: 960px, $pad: 0);
+}
+
+$bg-color: #FFF;
+$text-size: 16px;

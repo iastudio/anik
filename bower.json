@@ -1,0 +1,27 @@
+{
+  "name": "Awesome Boilerplate",
+  "version": "1.0.0",
+  "homepage": "https://github.com/irudoy/boilerplate",
+  "authors": [
+    "Ivan Rudoy - Work <rudooy@gmail.com>"
+  ],
+  "description": "SASS / JADE boilerplate",
+  "keywords": [
+    "sass",
+    "jade",
+    "css",
+    "html",
+    "layout",
+    "grunt",
+    "js",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
