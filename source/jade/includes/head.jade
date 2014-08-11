@@ -17,16 +17,15 @@ link(rel='apple-touch-icon-precomposed', href='i/icons/apple-touch-icon-precompo
 
 //- Tile icon for Win8 (144x144 + tile color)
 meta(name='msapplication-TileImage', content='i/icons/ms-touch-icon-144x144-precomposed.png')
-meta(name='msapplication-TileColor', content='#3372DF')
+meta(name='msapplication-TileColor', content='#106DA6')
 
 //- Chrome Add to Homescreen
 link(rel='shortcut icon', sizes='196x196', href='i/icons/touch-icon-196x196.png')
 
-//- For iOS web apps. Delete if not needed.
-//- meta(name='apple-mobile-web-app-capable', content='yes')
-//- meta(name='apple-mobile-web-app-status-bar-style', content='black')
-//- meta(name='apple-mobile-web-app-title', content='')
-
+//- For iOS web apps.
+meta(name='apple-mobile-web-app-capable', content='yes')
+meta(name='apple-mobile-web-app-status-bar-style', content='black')
+meta(name='apple-mobile-web-app-title', content='')
 
 link(rel='stylesheet', href='css/app.css')
 link(rel='stylesheet', href='css/font-awesome.min.css')
@@ -39,3 +38,6 @@ link(rel='stylesheet', href='css/font-awesome.min.css')
 <link rel="stylesheet" href="css/ie.css">
 <![endif]-->
 script(src='js/vendor/modernizr.js')
+
+//- Uncomment for LiveReload
+//- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

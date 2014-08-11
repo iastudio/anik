@@ -23,6 +23,9 @@ module.exports = function(grunt) {
       }
     },
     autoprefixer: {
+      options: {
+        browsers: ['last 2 version', '> 1%', 'Firefox ESR', 'Opera 12.1' ]
+      },
       multiple_files: {
         expand: true,
         flatten: true,
@@ -77,7 +80,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['source/css/**/*.css'],
-        tasks: ['copy:css'],
+        tasks: ['copy:css', 'autoprefixer'],
       },
       jade: {
         files: ['source/**/*.jade'],
@@ -85,14 +88,14 @@ module.exports = function(grunt) {
       },
       compass: {
         files: 'source/**/*.scss',
-        tasks: ['compass', 'autoprefixer']
+        tasks: ['compass']
       },
       img: {
-        files: 'source/i/*',
+        files: 'source/i/**/*',
         tasks: ['copy:img']
       },
       fonts: {
-        files: 'source/fonts/*',
+        files: 'source/fonts/**/*',
         tasks: ['copy:fonts']
       }
     },
@@ -100,7 +103,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           hostname: '127.0.0.1',
-          port: 3000,
+          port: 3003,
           dest: '.'
         }
       }
@@ -115,9 +118,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', [
-    'connect', 
+    'connect',
     'copy',
-    'jade', 
+    'jade',
     'compass',
     'autoprefixer',
     'watch'
