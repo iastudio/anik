@@ -1,6 +1,17 @@
 
-(function(){
-})();
+$(function(){
+
+  var $menu = $('#menu'),
+      $menulink = $('.navbar__menulink');
+
+  $menulink.on('click', function(e) {
+    e.preventDefault();
+    $menulink.toggleClass('active');
+    $menu.toggleClass('active');
+    return false;
+  });
+
+});
 
 	/////////////////
 	//    SLIDER   //
