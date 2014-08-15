@@ -1,6 +1,7 @@
 header {
 
   min-height: 65px;
+  position: relative;
 
   .header__logo {
     display: block;
@@ -9,6 +10,13 @@ header {
     background-size: 100%;
     background-position: 0 0;
     background-repeat: no-repeat;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: -52px;
+    z-index: 2;
+    right: 8px;
   }
 
   @include gridle_state( xs ) {

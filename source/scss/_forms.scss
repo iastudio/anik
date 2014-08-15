@@ -58,32 +58,38 @@ textarea {
 
   text-align: center;
   color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  @include text-shadow(0 1px 0 #025851);
 
-  padding: 12px 20px;
+  font-size: 1.385rem;
+  font-weight: 700;
+  @include text-shadow(0 1px 0 rgba(132,89,5,.75));
 
-  border: 1px solid #15685c;
-  @include border-radius(3px);
-  @include box-shadow(inset 0 1px 0 #85dbd7);
-  background-color: #1b7b6d;
-  @include background-image(linear-gradient(to bottom, #1b7b6d 0%, #3f9995 100%));
 
   margin-bottom: 18px;
+  padding: 10px 20px;
+
+  height: 2rem;
+  @include border-radius(15px);
+  @include background-clip(padding-box);
+  background-color: #db1921;
+  @include box-shadow(0 1px 0 #cb3731, inset 0 0 8px #b91015, 0 1px 0 #93494b, 0 0 3px #8f2c31, 0 4px 0 #B81A1C);
+  @include background-image(linear-gradient(to bottom, #db1921 0%, #d91921 100%));
+
 
   &:hover {
-    background-color: #1b7b6d;
-    @include background-image(linear-gradient(to bottom, #3f9995 0%, #1b7b6d 100%));
+    @include text-shadow(0 1px 0 rgba(0,0,0,.18));
+    color: #FFF;
+    background-color: #7ECE31;
+    @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 4px 0 #569E13);
+    @include background-image(linear-gradient(to bottom, #71BB31 0%, #7ECF31 100%));
     &:active {
-      @include box-shadow(inset 0 -1px 0 #85dbd7);
-      top: 3px;
+      @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 2px 0 #569E13);
+      top: 2px;
     }
   }
 
   &.btn {
     padding-top: 0;
     padding-bottom: 0;
-    line-height: 41px;
+    line-height: 2.3rem;
   }
 }

@@ -11,6 +11,12 @@ $(function(){
     return false;
   });
 
+  $('#menu .dropdown a').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().toggleClass('active');
+    return false;
+  });
+
 });
 
 	/////////////////

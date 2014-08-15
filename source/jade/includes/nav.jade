@@ -6,8 +6,20 @@
     ul
       li: a(href="#") Главная
       li: a(href="#") Новости и акции
-      li: a(href="#") Автошкола
-      li: a(href="#") Обучение
+      li.dropdown
+        a(href="#") Автошкола
+        ul
+          li: a(href="#") Процесс обучения
+          li: a(href="#") Стоимость
+          li: a(href="#") Документы
+          li: a(href="#") Дополнительные услуги
+      li.dropdown
+        a(href="#") Обучение
+        ul
+          li: a(href="#") Процесс обучения
+          li: a(href="#") Стоимость
+          li: a(href="#") Документы
+          li: a(href="#") Дополнительные услуги
       li: a(href="#") Форум
       li: a(href="#") Контакты
-      li: a(href="#") Мы в соцсетях
+      li.navbar__social: a(href="#") Мы в соцсетях &nbsp;<i class="fa fa-vk"></i>
