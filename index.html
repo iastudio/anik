@@ -29,21 +29,35 @@
     <script src="js/vendor/selectivizr-1.0.3b.js"></script>
     <link rel="stylesheet" href="css/ie.css">
     <![endif]-->
-    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/modernizr.js"></script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </head>
   <body>
     <div class="page-wrap">
-      <header class="header"><a href="/" class="header__logo"></a></header>
+      <header class="header"><a href="/" class="header__logo"></a><a href="#" class="btn">ЗАПИСАТЬСЯ НА ОБУЧЕНИЕ</a></header>
       <div id="navbar" class="navbar"><a href="#menu" class="navbar__menulink"><i class="fa fa-navicon"></i>&nbsp;Меню</a>
         <nav id="menu" role="navigation">
           <ul>
             <li><a href="#">Главная</a></li>
             <li><a href="#">Новости и акции</a></li>
-            <li><a href="#">Автошкола</a></li>
-            <li><a href="#">Обучение</a></li>
+            <li class="dropdown"><a href="#">Автошкола</a>
+              <ul>
+                <li><a href="#">Процесс обучения</a></li>
+                <li><a href="#">Стоимость</a></li>
+                <li><a href="#">Документы</a></li>
+                <li><a href="#">Дополнительные услуги</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#">Обучение</a>
+              <ul>
+                <li><a href="#">Процесс обучения</a></li>
+                <li><a href="#">Стоимость</a></li>
+                <li><a href="#">Документы</a></li>
+                <li><a href="#">Дополнительные услуги</a></li>
+              </ul>
+            </li>
             <li><a href="#">Форум</a></li>
             <li><a href="#">Контакты</a></li>
-            <li><a href="#">Мы в соцсетях</a></li>
+            <li class="navbar__social"><a href="#">Мы в соцсетях &nbsp;<i class="fa fa-vk"></i></a></li>
           </ul>
         </nav>
       </div>
