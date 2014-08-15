@@ -9,7 +9,8 @@
 @import "compass/reset";
 
 // Grid (JEET)
-@import 'jeet/index';
+// @import 'jeet/index';
+@import 'responsive-grid';
 
 // main
 @import "settings";
@@ -21,6 +22,7 @@
 // Misc
 @import "forms";
 @import "lightbox";
+@import "nav";
 
 // Elements
 @import "header";
@@ -33,12 +35,31 @@
 }
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	background: $bg-color;
 	line-height: 150%;
-	font-size: $text-size;
+}
 
-	min-width: 960px;
+html {
+
+  font-size: 16px;
+
+  @include gridle_state( xs ) {
+    font-size: 13px;
+  }
+
+  @include gridle_state( sm ) {
+    font-size: 14px;
+  }
+
+  @include gridle_state( md ) {
+    font-size: 15px;
+  }
+
+  @include gridle_state( lg ) {
+    font-size: 16px;
+  }
+
 }
 
 a[href^=tel]{
@@ -62,7 +83,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 h1, h2, h3, h4, h5 {
-	font-weight: bold;
+	//font-weight: bold;
 }
 
 h1 {

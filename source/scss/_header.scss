@@ -1,3 +1,45 @@
 header {
 
+  min-height: 65px;
+
+  .header__logo {
+    display: block;
+    background-image: url(../i/logo.png);
+    background-image: url(../i/logo.svg), none;
+    background-size: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+  }
+
+  @include gridle_state( xs ) {
+    height: 65px;
+    padding: 11px 8px;
+    .header__logo {
+      width: 200px;
+      height: 44px;
+    }
+  }
+
+  @include gridle_state( sm ) {
+    height: 210px;
+    padding: 39px 25px;
+    @include background-image(linear-gradient(to bottom, #c5e1f1 0%, #fff 100%));
+    .header__logo {
+      width: 350px;
+      height: 76px;
+    }
+  }
+
+  @include gridle_state( md ) {
+    height: 155px;
+    padding: 15px 0;
+    .header__logo {
+      width: 560px;
+      height: 122px;
+    }
+  }
+
+  @include gridle_state( lg ) {
+
+  }
 }
