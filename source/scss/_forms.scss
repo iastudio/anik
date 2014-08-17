@@ -58,6 +58,7 @@ textarea {
 
   text-align: center;
   color: #fff;
+  text-transform: uppercase;
 
   font-size: 1.385rem;
   font-weight: 700;
@@ -83,7 +84,7 @@ textarea {
     @include background-image(linear-gradient(to bottom, #71BB31 0%, #7ECF31 100%));
     &:active {
       @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 2px 0 #569E13);
-      top: 2px;
+      //top: 2px;
     }
   }
 

@@ -1,3 +1,18 @@
 header.header
-  a.header__logo(href="/")
-  a.btn(href="#") ЗАПИСАТЬСЯ НА ОБУЧЕНИЕ
+  .container
+    .grid-12.grid-sm-5.grid-md-5.header__leftside
+      a.header__logo(href="/")
+    .grid-12.grid-sm-5.push-sm-2.grid-md-7.push-md-0.header__rightside
+      .header__contacts.grid-sm-12.grid-md-5.hide-xs
+        .header__contacts__phone
+          i.fa.fa-mobile-phone.phone-icon
+          small Единая справочная
+          h2 8 (423) 2-205-203
+        .header__contacts__links
+          i.fa.fa-refresh
+          a(href="#") Заказать звонок
+          i.fa.fa-user
+          a(href="#") Кабинет
+
+      .grid-sm-12.grid-md-7
+        a.btn(href="#") ЗАПИСАТЬСЯ НА ОБУЧЕНИЕ

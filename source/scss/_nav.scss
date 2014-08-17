@@ -21,7 +21,7 @@
   }
 
   &:after {
-    bottom: 3px;
+    bottom: 4px;
   }
 
   a.navbar__menulink {
@@ -52,6 +52,14 @@
       padding: 0;
 
       & > li {
+
+        @include gridle_state( md ) {
+          margin: 0 10px;
+        }
+
+        @include gridle_state( lg ) {
+          margin: 0 15px;
+        }
 
         &.navbar__social {
           .fa {
@@ -186,7 +194,7 @@
             & > ul {
               display: none;
               position: absolute;
-              top: 45px;
+              top: 75px;
               width: 270px;
               & > li {
                 & > a {
@@ -197,6 +205,18 @@
           }
         }
       }
+    }
+  }
+}
+
+
+@include gridle_state( sm ) {
+  .navbar {
+    height: 80px;
+
+    nav[role=navigation] > ul > li > a {
+      height: 80px;
+      line-height: 80px;
     }
   }
 }

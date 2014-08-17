@@ -8,15 +8,71 @@ header {
     background-image: url(../i/logo.png);
     background-image: url(../i/logo.svg), none;
     background-size: 100%;
-    background-position: 0 0;
+    background-position: left center;
     background-repeat: no-repeat;
+  }
+
+  .header__contacts {
+
+    display: none;
+
+    .header__contacts__phone {
+
+      @include gridle_state( md ) {
+        margin-bottom: 10px;
+        margin-top: 15px;
+      }
+
+      .phone-icon {
+        display: block;
+        float: left;
+        width: 35px; height: 45px;
+        font-size: rem-calc(65px);
+        color: #0077C0;
+      }
+
+      small {
+        color: #000;
+        font-size: rem-calc(14px);
+      }
+      h2 {
+        white-space: pre;
+        color: #000;
+        font-size: rem-calc(27px);
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+    }
+    .header__contacts__links {
+      white-space: pre;
+      .fa {
+        margin-right: 5px;
+        color: #333333;
+      }
+      a {
+        color: #0077bf;
+        font-size: rem-calc(15px);
+        font-weight: 700;
+        @include text-shadow(0 1px 0 #fbfdfd);
+        text-transform: uppercase;
+        text-decoration: none;
+        border-bottom: 1px dashed;
+        margin-right: 20px;
+        line-height: 1;
+
+        &:hover {
+          color: #999999;
+        }
+      }
+    }
   }
 
   .btn {
     position: absolute;
-    bottom: -52px;
+    top: 18px;
     z-index: 2;
     right: 8px;
+    font-size: 1.185rem;
   }
 
   @include gridle_state( xs ) {
@@ -36,14 +92,32 @@ header {
       width: 350px;
       height: 76px;
     }
+    .btn {
+      position: relative;
+      bottom: auto;
+      //float: right;
+    }
+    .header__contacts {
+      display: inline-block;
+      // width: 330px;
+      // float: right;
+    }
+    .header__rightside {
+      // width: 330px;
+      // float: right;
+    }
   }
 
   @include gridle_state( md ) {
     height: 155px;
     padding: 15px 0;
     .header__logo {
-      width: 560px;
+      width: 100%;
+      max-width: 550px;
       height: 122px;
+    }
+    .btn {
+      top: 40px;
     }
   }
 
