@@ -1,0 +1,145 @@
+
+.bar {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 40px;
+  margin-bottom: 10px;
+  background-color: #875401;
+  @include border-radius(14px);
+  @include background-clip(padding-box);
+  @include box-shadow(0 15px 70px -20px rgba(0,1,0,.7));
+  overflow: hidden;
+  @include background-image(linear-gradient(to right bottom,
+    #9D7430 25%,
+    rgba(0,0,0,0) 25%,
+    rgba(0,0,0,0) 50%,
+    #9D7430 50%,
+    #9D7430 75%,
+    rgba(0,0,0,0) 75%,
+    rgba(0,0,0,0)
+   ));
+  background-size: 30px 60px;
+  z-index: 0;
+
+  @include gridle_state( sm ) {
+    height: 60px;
+  }
+
+  @include gridle_state( md ) {
+    width: 150%;
+    height: 85px;
+    margin-bottom: 20px;
+  }
+
+  &:hover .bar__filled {
+    width: 95%;
+  }
+
+  &:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: ' ';
+    @include background-image(linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 15%,
+      rgba(255,235,118,.3) 15%,
+      rgba(255,235,118,0) 50%,
+      rgba(0,0,0,0) 100%
+     ));
+    z-index: -2;
+  }
+
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: ' ';
+    @include background-image(linear-gradient(to top,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 7%,
+      rgba(255,235,118,.3) 7%,
+      rgba(255,235,118,0) 20%,
+      rgba(0,0,0,0) 100%
+     ));
+    z-index: -1;
+  }
+
+  .bar__filled {
+    position: absolute;
+    height: 100%; width: 85%;
+    background-color: #253c4b;
+    @include background-image(linear-gradient(bottom, #d49000 0%, #fde01f 63.65%, #e8c314 100%));
+    @include transition(all .5s ease);
+    overflow: hidden;
+    white-space: pre;
+
+    line-height: 40px;
+    text-indent: 13px;
+    color: #7f5404;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: rem-calc(22px);
+    font-weight: 700;
+    @include text-shadow(0 1px 0 rgba(255,234,136,.7));
+    text-transform: uppercase;
+
+    z-index: -4;
+
+    @include gridle_state( sm ) {
+      line-height: 60px;
+      font-size: rem-calc(36px);
+      text-indent: 23px;
+    }
+
+    @include gridle_state( md ) {
+      line-height: 85px;
+      font-size: rem-calc(56px);
+      text-indent: 33px;
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      width: 100%; height: 100%;
+      left: 0; top: 0;
+      content: ' ';
+      @include background-image(linear-gradient( left,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 46%,
+        #ECC232 46%,
+        #ECC232 50%,
+        #DBAB0C 50%,
+        #DBAB0C 54%,
+        rgba(0,0,0,0) 54%,
+        rgba(0,0,0,0) 100%
+       ));
+      background-repeat: repeat;
+      background-size: 22px;
+
+      opacity: .4;
+      z-index: -3;
+    }
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+      top: 0; left: 0;
+      content: ' ';
+      @include background-image(linear-gradient(to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 15%,
+        rgba(255,235,118,1) 15%,
+        rgba(255,235,118,0) 50%,
+        rgba(0,0,0,0) 100%
+       ));
+      z-index: -4;
+    }
+  }
+  &.active .bar__filled {
+    width: 13%;
+  }
+}

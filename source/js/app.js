@@ -1,5 +1,36 @@
 
+var myScroll;
+
+function loaded () {
+  myScroll = new IScroll('#carousel', {
+    scrollX: true,
+    scrollY: false,
+    momentum: false,
+    snap: true,
+    snapSpeed: 500,
+    keyBindings: true,
+    eventPassthrough: true,
+    preventDefault: false
+  });
+
+  // myScroll.on('beforeScrollStart', function() {
+  //   $('#carousel .togglable').addClass('active');
+  // });
+
+  // myScroll.on('scrollEnd', function() {
+  //   $('#carousel .togglable.active').removeClass('active');
+  // });
+
+}
+
+// document.getElementById('carousel').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
 $(function(){
+
+  /////////////////
+  //  NAV        //
+  /////////////////
 
   var $menu = $('#menu'),
       $menulink = $('.navbar__menulink');
@@ -17,7 +48,43 @@ $(function(){
     return false;
   });
 
+  /////////////////
+  //  CAROUSEL   //
+  /////////////////
+
+  var time = 1000;
+  var items = $('#carousel .carousel__item').length;
+  var width = items * 100 + '%';
+  var itemWidth = 100 / items + '%';
+  $('#carousel .carousel__scroller').css('width', width);
+  $('#carousel .carousel__item').css('width', itemWidth);
+
+  $('#carousel .carousel__nav--left').on('click', function(e) {
+    e.preventDefault();
+    if (myScroll.currentPage.pageX == 0)
+      myScroll.goToPage(myScroll.pages.length - 1, 0, time)
+    else
+      myScroll.prev(time);
+  });
+
+  $('#carousel .carousel__nav--right').on('click', function(e) {
+    e.preventDefault();
+    if (myScroll.currentPage.pageX == (myScroll.pages.length - 1))
+      myScroll.goToPage(0, 0, time)
+    else
+      myScroll.next(time);
+  });
+
+  // $( window ).resize(function() {
+  //   refresh();
+  // });
+  // function refresh() {
+  //   $('#carousel').height( $('#carousel .carousel__scroller').height() );
+  // }
+  // refresh();
+
 });
+
 
 	/////////////////
 	//    SLIDER   //

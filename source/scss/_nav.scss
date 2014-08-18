@@ -53,6 +53,9 @@
 
       & > li {
 
+        position: relative;
+        z-index: 99;
+
         @include gridle_state( md ) {
           margin: 0 10px;
         }
@@ -101,6 +104,7 @@
           height: 45px;
           overflow: hidden;
           position: relative;
+          z-index: 99;
           &:after {
             content: '+';
             display: block;
@@ -180,6 +184,7 @@
           }
           &.dropdown {
             overflow: visible;
+            z-index: 2;
             &:after {
               display: none;
             }
