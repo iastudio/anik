@@ -7,7 +7,7 @@ function loaded () {
     scrollY: false,
     momentum: false,
     snap: true,
-    snapSpeed: 400,
+    snapSpeed: 500,
     keyBindings: true
   });
 }
@@ -40,11 +40,28 @@ $(function(){
   //  CAROUSEL   //
   /////////////////
 
+  var time = 1000;
   var items = $('#carousel .craousel__item').length;
   var width = items * 100 + '%';
   var itemWidth = 100 / items + '%';
   $('#carousel .carousel__scroller').css('width', width);
   $('#carousel .craousel__item').css('width', itemWidth);
+
+  $('#carousel .carousel__nav--left').on('click', function(e) {
+    e.preventDefault();
+    if (myScroll.currentPage.pageX == 0)
+      myScroll.goToPage(myScroll.pages.length - 1, 0, time)
+    else
+      myScroll.prev(time);
+  });
+
+  $('#carousel .carousel__nav--right').on('click', function(e) {
+    e.preventDefault();
+    if (myScroll.currentPage.pageX == (myScroll.pages.length - 1))
+      myScroll.goToPage(0, 0, time)
+    else
+      myScroll.next(time);
+  });
 
   $( window ).resize(function() {
     refresh();
