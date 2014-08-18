@@ -8,11 +8,23 @@ function loaded () {
     momentum: false,
     snap: true,
     snapSpeed: 500,
-    keyBindings: true
+    keyBindings: true,
+    eventPassthrough: true,
+    preventDefault: false
   });
+
+  // myScroll.on('beforeScrollStart', function() {
+  //   $('#carousel .togglable').addClass('active');
+  // });
+
+  // myScroll.on('scrollEnd', function() {
+  //   $('#carousel .togglable.active').removeClass('active');
+  // });
+
 }
 
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+// document.getElementById('carousel').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
 $(function(){
 
@@ -41,11 +53,11 @@ $(function(){
   /////////////////
 
   var time = 1000;
-  var items = $('#carousel .craousel__item').length;
+  var items = $('#carousel .carousel__item').length;
   var width = items * 100 + '%';
   var itemWidth = 100 / items + '%';
   $('#carousel .carousel__scroller').css('width', width);
-  $('#carousel .craousel__item').css('width', itemWidth);
+  $('#carousel .carousel__item').css('width', itemWidth);
 
   $('#carousel .carousel__nav--left').on('click', function(e) {
     e.preventDefault();
@@ -63,15 +75,13 @@ $(function(){
       myScroll.next(time);
   });
 
-  $( window ).resize(function() {
-    refresh();
-  });
-
-  function refresh() {
-    $('#carousel').height( $('#carousel .carousel__scroller').height() );
-  }
-
-  refresh();
+  // $( window ).resize(function() {
+  //   refresh();
+  // });
+  // function refresh() {
+  //   $('#carousel').height( $('#carousel .carousel__scroller').height() );
+  // }
+  // refresh();
 
 });
 
