@@ -29,9 +29,9 @@
     <script src="js/vendor/selectivizr-1.0.3b.js"></script>
     <link rel="stylesheet" href="css/ie.css">
     <![endif]-->
-    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/modernizr.js"></script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </head>
-  <body>
+  <body onload="loaded()">
     <div class="page-wrap">
       <header class="header">
         <div class="container">
@@ -76,6 +76,19 @@
           </nav>
         </div>
       </div>
+      <div class="container">
+        <div class="carousel">
+          <div class="carousel__viewport">
+            <div id="carousel" class="carousel__container">
+              <div class="carousel__scroller">
+                <div class="craousel__item"><img src="i/placeholders/1.jpg"></div>
+                <div class="craousel__item"><img src="i/placeholders/1.jpg"></div>
+                <div class="craousel__item"><img src="i/placeholders/1.jpg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <footer></footer>
     </div>
     <!--[if (!IE)|(gt IE 8)]><!-->
@@ -85,6 +98,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <![endif]-->
     <script src="js/vendor/jquery.placeholder.js"></script>
+    <script src="js/vendor/iscroll.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

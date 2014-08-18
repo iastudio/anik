@@ -1,5 +1,24 @@
 
+var myScroll;
+
+function loaded () {
+  myScroll = new IScroll('#carousel', {
+    scrollX: true,
+    scrollY: false,
+    momentum: false,
+    snap: true,
+    snapSpeed: 400,
+    keyBindings: true
+  });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
 $(function(){
+
+  /////////////////
+  //  NAV        //
+  /////////////////
 
   var $menu = $('#menu'),
       $menulink = $('.navbar__menulink');
@@ -17,7 +36,28 @@ $(function(){
     return false;
   });
 
+  /////////////////
+  //  CAROUSEL   //
+  /////////////////
+
+  var items = $('#carousel .craousel__item').length;
+  var width = items * 100 + '%';
+  var itemWidth = 100 / items + '%';
+  $('#carousel .carousel__scroller').css('width', width);
+  $('#carousel .craousel__item').css('width', itemWidth);
+
+  $( window ).resize(function() {
+    refresh();
+  });
+
+  function refresh() {
+    $('#carousel').height( $('#carousel .carousel__scroller').height() );
+  }
+
+  refresh();
+
 });
+
 
 	/////////////////
 	//    SLIDER   //
