@@ -1,8 +1,8 @@
 
-var myScroll;
+var carouselScroll;
 
 function loaded () {
-  myScroll = new IScroll('#carousel', {
+  carouselScroll = new IScroll('#carousel', {
     scrollX: true,
     scrollY: false,
     momentum: false,
@@ -61,18 +61,18 @@ $(function(){
 
   $('#carousel .carousel__nav--left').on('click', function(e) {
     e.preventDefault();
-    if (myScroll.currentPage.pageX == 0)
-      myScroll.goToPage(myScroll.pages.length - 1, 0, time)
+    if (carouselScroll.currentPage.pageX == 0)
+      carouselScroll.goToPage(carouselScroll.pages.length - 1, 0, time)
     else
-      myScroll.prev(time);
+      carouselScroll.prev(time);
   });
 
   $('#carousel .carousel__nav--right').on('click', function(e) {
     e.preventDefault();
-    if (myScroll.currentPage.pageX == (myScroll.pages.length - 1))
-      myScroll.goToPage(0, 0, time)
+    if (carouselScroll.currentPage.pageX == (carouselScroll.pages.length - 1))
+      carouselScroll.goToPage(0, 0, time)
     else
-      myScroll.next(time);
+      carouselScroll.next(time);
   });
 
   // $( window ).resize(function() {
