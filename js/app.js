@@ -28,6 +28,12 @@ function loaded () {
 
 $(function(){
 
+  $(window).load(function(){
+    $(".teachers__container").mCustomScrollbar({
+      axis:"y"
+    });
+  });
+
   /////////////////
   //  NAV        //
   /////////////////
