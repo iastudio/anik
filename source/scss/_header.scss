@@ -73,6 +73,34 @@ header {
     z-index: 2;
     right: 8px;
     font-size: 1.185rem;
+
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    @include text-shadow(0 1px 0 rgba(132,89,5,.75));
+    margin-bottom: 18px;
+    padding: 10px 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 2.3rem;
+    height: 2rem;
+    @include border-radius(15px);
+    @include background-clip(padding-box);
+    background-color: #db1921;
+    @include box-shadow(0 1px 0 #cb3731, inset 0 0 8px #b91015, 0 1px 0 #93494b, 0 0 3px #8f2c31, 0 4px 0 #B81A1C);
+    @include background-image(linear-gradient(to bottom, #db1921 0%, #d91921 100%));
+    &:hover {
+      @include text-shadow(0 1px 0 rgba(0,0,0,.18));
+      color: #FFF;
+      background-color: #7ECE31;
+      @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 4px 0 #569E13);
+      @include background-image(linear-gradient(to bottom, #71BB31 0%, #7ECF31 100%));
+      &:active {
+        @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 2px 0 #569E13);
+        //top: 2px;
+      }
+    }
   }
 
   @include gridle_state( xs ) {

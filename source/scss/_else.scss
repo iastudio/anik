@@ -1,0 +1,226 @@
+.hidden-xs {
+  display: none;
+  @include gridle_state( sm ) {
+    display: block;
+  }
+}
+
+.hidden-sm {
+  @include gridle_state( sm ) {
+    display: none !important;
+  }
+}
+
+.teachers {
+
+  @include gridle ( 12, xs );
+  @include gridle ( 4 , sm );
+  @include gridle ( 5 , md );
+
+  margin-bottom: 40px;
+
+  h2 {
+    color: #2585bf;
+    font-size: rem-calc(22px);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .teachers__container {
+
+    @include gridle_state( sm ) {
+      height: 800px;
+      overflow: hidden;
+    }
+
+    @include gridle_state( md ) {
+      height: 520px;
+    }
+
+    ul {
+      li {
+
+        margin-bottom: 24px;
+        @extend %gridle-clearfix;
+
+        a {
+          display: block;
+          text-decoration: none;
+        }
+
+        .teachers__pic {
+          width: 71px;
+          height: 71px;
+          float: left;
+          border-radius: 100%;
+          margin-right: 9px;
+
+          @include gridle_state( sm ) {
+            width: 144px;
+            height: 144px;
+            margin-right: 20px;
+            float: none;
+            clear: both;
+            margin-bottom: 20px;
+          }
+          @include gridle_state( md ) {
+            float: left;
+            clear: none;
+          }
+        }
+
+        .teachers__content {
+          @include gridle_state( md ) {
+            padding-top: 25px;
+          }
+        }
+
+        h5 {
+          margin-top: 6px;
+          color: #050503;
+          font-size: rem-calc(16px);
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 1;
+          margin-bottom: 3px;
+        }
+        span {
+          color: #656565;
+          font-size: rem-calc(12px);
+          margin-bottom: 3px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+.news {
+  // @include gridle ( 12, xs );
+  // @include gridle ( 8 , sm );
+
+  // @include gridle ( 6 , md );
+
+  // @include gridle_state( sm ) {
+  //   @include gridle_push ( 1 );
+  // }
+
+  .news__all {
+    color: #0077bf;
+    font-size: rem-calc(16px);
+    font-weight: 700;
+    @include text-shadow(0 1px 0 #fff);
+    text-transform: uppercase;
+    text-decoration: underline;
+    position: absolute;
+    bottom: -40px;
+    display: none;
+    @include gridle_show( md );
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  @include gridle_set( (
+      grid : 12,
+      push : 0,
+      sm : (
+          grid : 7,
+          push : 1
+      ),
+      md : (
+          grid : 6,
+          push : 1
+      )
+  ) );
+
+  margin-bottom: 40px;
+
+  @include gridle_state( md ) {
+    border: 2px dashed #B7B7B7;
+    top: 12px;
+    padding-bottom: 20px;
+  }
+
+  h5.news__title {
+    color: #2585bf;
+    font-size: rem-calc(22px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+
+    @include gridle_state( md ) {
+      position: relative;
+      top: -12px;
+      background-color: #fff;
+      display: inline-block;
+    }
+
+  }
+
+  ul {
+    li {
+      margin-bottom: 20px;
+      @extend %gridle-clearfix;
+
+      @include gridle_state( sm ) {
+        margin-bottom: 40px;
+      }
+
+      .news__image {
+        @include gridle ( 2 , sm );
+        @include gridle_hide( xs );
+        text-align: center;
+        img {
+          width: 100%;
+          height: auto;
+          border: 5px solid #ffe179;
+        }
+      }
+
+      .news__content {
+        @include gridle ( 10 , sm );
+      }
+
+      .btn {
+        display: none;
+        margin-bottom: 0;
+        @include gridle_state( sm ) {
+          display: inline-block;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+      span {
+        color: #656565;
+        font-size: rem-calc(14px);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      h5 {
+        color: #0077bf;
+        font-size: rem-calc(16px);
+        font-weight: 700;
+        @include text-shadow(0 1px 0 #fff);
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 5px;
+      }
+      p {
+        line-height: 1.2;
+        font-size: rem-calc(14px);
+        color: #333;
+        margin-bottom: 0;
+        @include gridle_state( sm ) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+  }
+
+}

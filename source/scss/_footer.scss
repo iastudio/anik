@@ -1,4 +1,134 @@
 footer {
 
-}
+  font-family: 'Kelson Sans';
+  color: #FFF;
+  background-color: #0D68A1;
+  min-height: 120px;
+  margin-top: 20px;
 
+  @include gridle_state( sm ) {
+    min-height: 510px;
+    margin-top: 40px;
+    padding-top: 50px;
+  }
+
+  @include gridle_state( md ) {
+    min-height: 300px;
+    margin-top: 90px;
+  }
+
+  .footer__contact {
+    height: 120px;
+    background-color: #055C93;
+    padding: 30px 10px;
+    display: block;
+    overflow: hidden;
+    float: none;
+    @include gridle ( 12, xs );
+    @include gridle ( 6, sm );
+    @include gridle ( 4, md );
+    @include gridle_state ( sm ) {
+      padding: 30px;
+      margin-bottom: 33px;
+    }
+    span {
+      font-size: rem-calc(14px);
+      line-height: 1;
+      margin-bottom: 4px;
+      @include gridle_state ( sm ) {
+        margin-bottom: 0;
+      }
+    }
+    h2 {
+      font-size: rem-calc(24px);
+      color: #FFF;
+      @include gridle_state ( sm ) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .footer__info {
+    @include gridle_hide ( xs );
+    @include gridle ( 6, sm );
+    @include gridle ( 4, md );
+    margin-bottom: 33px;
+  }
+
+  .footer__developer {
+    @include gridle_hide ( xs );
+    @include gridle ( 6, sm );
+    @include gridle ( 4, md );
+
+    .iastudio__logo {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background-image: url(../i/iastudio.png);
+      background-image: url(../i/iastudio.svg), none;
+      background-size: 100%;
+      background-position: left center;
+      background-repeat: no-repeat;
+      position: relative;
+      top: 7px;
+      margin-right: 5px;
+    }
+
+    a {
+      color: #FFF;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer__col {
+
+    @include gridle_hide ( xs );
+    // @include gridle_show ( sm );
+    @include gridle ( 4 , sm );
+    @include gridle ( 2 , md );
+    // @include gridle_clear_each( 3, right, sm );
+    // @include gridle ( 5 , md );
+
+    margin-bottom: 40px;
+
+    &.footer__col--last {
+      @include gridle_clear( left );
+      min-height: 290px;
+      @include gridle_state ( md ) {
+        max-height: auto;
+        @include gridle_clear ( none );
+      }
+    }
+
+    ul {
+      li {
+
+        margin-bottom: 5px;
+
+        a {
+          color: #fff;
+          font-size: rem-calc(14px);
+          text-decoration: none;
+          font-weight: 400;
+          line-height: 1;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        &.item__main {
+          margin-bottom: 10px;
+
+          a {
+            font-size: rem-calc(18px);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

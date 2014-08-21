@@ -25,6 +25,7 @@
 @import "nav";
 @import "bar";
 @import "slider";
+@import "scrollbars";
 
 // Elements
 @import "header";
@@ -140,4 +141,9 @@ a {
 .container {
 	// position: relative;
 	// z-index: 1;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
 }
