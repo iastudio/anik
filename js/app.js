@@ -84,15 +84,34 @@ $(function(){
       bigmap.behaviors.disable('scrollZoom');
 
       for (var i = 1; i <= places.length; ++i) {
-        var balloon = new ymaps.Balloon(bigmap, {
-          closeButton: true,
-          panelMaxMapArea: 0,
-          autoPan: false,
-          minHeight: 55
+
+        // var balloon = new ymaps.Balloon(bigmap, {
+        //   closeButton: true,
+        //   panelMaxMapArea: 0,
+        //   autoPan: false,
+        //   minHeight: 55
+        // });
+        // balloon.options.setParent(bigmap.options);
+        // balloon.options.closeButton
+        // balloon.open([places[i-1].latitude, places[i-1].longitude], places[i-1].desc + '<br><a href="/dest/contacts.html#map-' + i + '">Контакты</a>');
+
+        var tempGeoObject = new ymaps.GeoObject({
+            geometry: {
+                type: "Point",
+                coordinates: [places[i-1].latitude, places[i-1].longitude]
+            },
+            properties: {
+                iconContent: places[i-1].desc,
+                balloonContent: places[i-1].desc + '<br><a href="/dest/contacts.html#map-' + i + '">Контакты</a>'
+                //hintContent: '<br><a href="/dest/contacts.html#map-' + i + '">Контакты</a>'
+            }
+        }, {
+            preset: 'islands#darkBlueStretchyIcon',
+            draggable: false
         });
-        balloon.options.setParent(bigmap.options);
-        balloon.options.closeButton
-        balloon.open([places[i-1].latitude, places[i-1].longitude], places[i-1].desc + '<br><a href="/dest/contacts.html#map-' + i + '">Контакты</a>');
+
+        bigmap.geoObjects.add(tempGeoObject);
+
       }
 
       geolocation.get({
