@@ -1,0 +1,43 @@
+@font-face {
+	font-family: 'anik';
+	src:url('anik.eot?-vxn1ip');
+	src:url('anik.eot?#iefix-vxn1ip') format('embedded-opentype'),
+		url('anik.woff?-vxn1ip') format('woff'),
+		url('anik.ttf?-vxn1ip') format('truetype'),
+		url('anik.svg?-vxn1ip#anik') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'anik';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-car:before {
+	content: "\e600";
+}
+.icon-moto:before {
+	content: "\e601";
+}
+.icon-truck:before {
+	content: "\e602";
+}
+.icon-pin:before {
+	content: "\e603";
+}
+.icon-phone:before {
+	content: "\e604";
+}
+.icon-time:before {
+	content: "\e605";
+}
