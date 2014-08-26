@@ -74,20 +74,6 @@ $(function(){
         $(this).removeClass('active');
       });
 
-      ///
-
-      $('.contacts__item__showBigmap').on('click', function(e) {
-        e.preventDefault();
-        $('#bigmap').addClass('bigmap--fullscreen');
-        $('.contacts__item__hideBigmap').addClass('active');
-      });
-
-      $('.contacts__item__hideBigmap').on('click', function(e) {
-        e.preventDefault();
-        $('#bigmap').removeClass('bigmap--fullscreen');
-        $(this).removeClass('active');
-      });
-
     }
 
     if ($('#bigmap').length > 0) {
@@ -114,6 +100,20 @@ $(function(){
         mapStateAutoApply: false
       }).then(function (result) {
         bigmap.geoObjects.add(result.geoObjects);
+      });
+
+      $('.contacts__item__showBigmap').on('click', function(e) {
+        e.preventDefault();
+        // $('#bigmap').addClass('bigmap--fullscreen');
+        bigmap.container.enterFullscreen();
+        $('.contacts__item__hideBigmap').addClass('active');
+      });
+
+      $('.contacts__item__hideBigmap').on('click', function(e) {
+        e.preventDefault();
+        // $('#bigmap').removeClass('bigmap--fullscreen');
+        bigmap.container.exitFullscreen();
+        $(this).removeClass('active');
       });
 
     }
