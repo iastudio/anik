@@ -22,12 +22,14 @@ function loaded () {
 
 $(function(){
 
+  FastClick.attach(document.body);
+
 
   /////////////
   //   MAP   //
   /////////////
 
-  var mapZoom = 17, bigmap, places;
+  var mapZoom = 17, bigmap, places, mapArr = new Array();
 
   places = [
     { latitude: 43.11312, longitude: 131.880733, desc: 'ул. Алеутская, 11' },
@@ -44,11 +46,33 @@ $(function(){
     if ($('.contacts__item__map').length > 0) {
 
       for (var i = 1; i <= places.length; ++i) {
-        var temp = new ymaps.Map('map-' + i, { center: [places[i-1].latitude, places[i-1].longitude], zoom: mapZoom });
+        var temp = new ymaps.Map('map-' + i, { center: [places[i-1].latitude, places[i-1].longitude], zoom: mapZoom, controls: ['zoomControl', 'trafficControl', 'geolocationControl', 'searchControl', 'typeSelector'] });
         var tempPlacemark = new ymaps.Placemark(temp.getCenter(), {});
         temp.geoObjects.add(tempPlacemark);
         temp.behaviors.disable('scrollZoom');
+        temp.container.fitToViewport();
+        mapArr[i-1] = temp;
       }
+
+      //////////////////
+      //   MAP BTNS   //
+      //////////////////
+
+      $('.contacts__item__showmap').on('click', function(e) {
+        e.preventDefault();
+        //$(this).parent().find('.contacts__item__map').addClass('contacts__item__map--fullscreen');
+        var id = parseInt($(this).parent().find('.contacts__item__map').attr('id').replace( /^\D+/g, ''));
+        mapArr[id-1].container.enterFullscreen();
+        $(this).parent().find('.contacts__item__hidemap').addClass('active');
+      });
+
+      $('.contacts__item__hidemap').on('click', function(e) {
+        e.preventDefault();
+        //$(this).parent().find('.contacts__item__map').removeClass('contacts__item__map--fullscreen');
+        var id = parseInt($(this).parent().find('.contacts__item__map').attr('id').replace( /^\D+/g, ''));
+        mapArr[id-1].container.exitFullscreen();
+        $(this).removeClass('active');
+      });
 
     }
 
@@ -56,12 +80,15 @@ $(function(){
 
       var geolocation = ymaps.geolocation;
 
-      bigmap = new ymaps.Map('bigmap', { center: [43.125564, 131.879412], zoom: 13 });
+      bigmap = new ymaps.Map('bigmap', { center: [43.125564, 131.879412], zoom: 13, controls: ['zoomControl', 'trafficControl', 'geolocationControl', 'searchControl', 'typeSelector'] });
       bigmap.behaviors.disable('scrollZoom');
 
       for (var i = 1; i <= places.length; ++i) {
         var balloon = new ymaps.Balloon(bigmap, {
-          closeButton: true
+          closeButton: true,
+          panelMaxMapArea: 0,
+          autoPan: false,
+          minHeight: 55
         });
         balloon.options.setParent(bigmap.options);
         balloon.options.closeButton
@@ -73,6 +100,20 @@ $(function(){
         mapStateAutoApply: false
       }).then(function (result) {
         bigmap.geoObjects.add(result.geoObjects);
+      });
+
+      $('.contacts__item__showBigmap').on('click', function(e) {
+        e.preventDefault();
+        // $('#bigmap').addClass('bigmap--fullscreen');
+        bigmap.container.enterFullscreen();
+        $('.contacts__item__hideBigmap').addClass('active');
+      });
+
+      $('.contacts__item__hideBigmap').on('click', function(e) {
+        e.preventDefault();
+        // $('#bigmap').removeClass('bigmap--fullscreen');
+        bigmap.container.exitFullscreen();
+        $(this).removeClass('active');
       });
 
     }

@@ -255,6 +255,10 @@
         font-size: rem-calc(30px);
         float: left;
         margin-right: 22px;
+        @include gridle_state( sm ) {
+          margin-right: 10px;
+          font-size: rem-calc(20px);
+        }
       }
       h2 {
         color: #000;
@@ -263,6 +267,9 @@
         line-height: 30px;
         text-transform: none;
         text-wrap: pre;
+        @include gridle_state( sm ) {
+          line-height: 20px;
+        }
       }
     }
 
@@ -303,13 +310,15 @@
     font-size: rem-calc(14px);
   }
   .contacts__item__map {
-    width: 620px;
+    width: 100%;
+    max-width: 620px;
     height: 250px;
     margin-bottom: 18px;
   }
   .contacts__item__info {
     font-size: rem-calc(14px);
     margin-bottom: 18px;
+    min-height: 25px;
     i {
       display: block;
       float: left;
@@ -321,14 +330,92 @@
   }
 }
 
+html.touch {
+
+  .contacts__item {
+    .contacts__item__showmap {
+      display: inline-block;
+    }
+    .contacts__item__map {
+      display: none;
+      &.contacts__item__map--fullscreen {
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+      }
+    }
+    .contacts__item__hidemap {
+      display: none;
+      position: fixed;
+      width: 90%;
+      bottom: 10px;
+      left: 5%;
+      z-index: 10001;
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .bigmap {
+    display: none;
+    &.bigmap--fullscreen {
+      position: fixed;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+    }
+  }
+
+  .contacts__item__showBigmap {
+    display: inline-block;
+  }
+
+  .contacts__item__hideBigmap {
+    display: none;
+    position: fixed;
+    width: 90%;
+    bottom: 10px;
+    left: 5%;
+    z-index: 10001;
+    &.active {
+      display: block;
+    }
+  }
+
+}
+
+.contacts__item {
+  .contacts__item__hidemap, .contacts__item__showmap {
+    display: none;
+  }
+}
+
+.btn.contacts__item__showBigmap, .btn.contacts__item__hideBigmap {
+  display: none;
+}
+
 .bigmap {
   position: absolute;
   z-index: 0;
   width: 100%;
   height: 100%;
-  min-height: 720px;
+  min-height: 100%;
+  @include gridle_state ( md ) {
+    min-height: 720px;
+  }
 }
 
 .innercontent--withmap {
-  min-height: 720px;
+  min-height: 100%;
+  @include gridle_state ( md ) {
+    min-height: 720px;
+  }
 }

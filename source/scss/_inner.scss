@@ -27,6 +27,7 @@
 
   .sidebar {
     @include gridle_hide( xs );
+    @include gridle_show( sm );
     @include gridle ( 4 , sm );
     @include gridle ( 3 , md );
 
