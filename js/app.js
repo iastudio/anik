@@ -22,38 +22,14 @@ function loaded () {
 
 $(function(){
 
-  $('.contacts__item__showmap').on('click', function(e) {
-    e.preventDefault();
-    $(this).parent().find('.contacts__item__map').addClass('contacts__item__map--fullscreen');
-    $(this).parent().find('.contacts__item__hidemap').addClass('active');
-  });
-
-  $('.contacts__item__hidemap').on('click', function(e) {
-    e.preventDefault();
-    $(this).parent().find('.contacts__item__map').removeClass('contacts__item__map--fullscreen');
-    $(this).removeClass('active');
-  });
-
-  ///
-
-  $('.contacts__item__showBigmap').on('click', function(e) {
-    e.preventDefault();
-    $('#bigmap').addClass('bigmap--fullscreen');
-    $('.contacts__item__hideBigmap').addClass('active');
-  });
-
-  $('.contacts__item__hideBigmap').on('click', function(e) {
-    e.preventDefault();
-    $('#bigmap').removeClass('bigmap--fullscreen');
-    $(this).removeClass('active');
-  });
+  FastClick.attach(document.body);
 
 
   /////////////
   //   MAP   //
   /////////////
 
-  var mapZoom = 17, bigmap, places;
+  var mapZoom = 17, bigmap, places, mapArr = new Array();
 
   places = [
     { latitude: 43.11312, longitude: 131.880733, desc: 'ул. Алеутская, 11' },
@@ -74,7 +50,43 @@ $(function(){
         var tempPlacemark = new ymaps.Placemark(temp.getCenter(), {});
         temp.geoObjects.add(tempPlacemark);
         temp.behaviors.disable('scrollZoom');
+        temp.container.fitToViewport();
+        mapArr[i-1] = temp;
       }
+
+      //////////////////
+      //   MAP BTNS   //
+      //////////////////
+
+      $('.contacts__item__showmap').on('click', function(e) {
+        e.preventDefault();
+        //$(this).parent().find('.contacts__item__map').addClass('contacts__item__map--fullscreen');
+        var id = parseInt($(this).parent().find('.contacts__item__map').attr('id').replace( /^\D+/g, ''));
+        mapArr[id-1].container.enterFullscreen();
+        $(this).parent().find('.contacts__item__hidemap').addClass('active');
+      });
+
+      $('.contacts__item__hidemap').on('click', function(e) {
+        e.preventDefault();
+        //$(this).parent().find('.contacts__item__map').removeClass('contacts__item__map--fullscreen');
+        var id = parseInt($(this).parent().find('.contacts__item__map').attr('id').replace( /^\D+/g, ''));
+        mapArr[id-1].container.exitFullscreen();
+        $(this).removeClass('active');
+      });
+
+      ///
+
+      $('.contacts__item__showBigmap').on('click', function(e) {
+        e.preventDefault();
+        $('#bigmap').addClass('bigmap--fullscreen');
+        $('.contacts__item__hideBigmap').addClass('active');
+      });
+
+      $('.contacts__item__hideBigmap').on('click', function(e) {
+        e.preventDefault();
+        $('#bigmap').removeClass('bigmap--fullscreen');
+        $(this).removeClass('active');
+      });
 
     }
 
@@ -89,7 +101,7 @@ $(function(){
         var balloon = new ymaps.Balloon(bigmap, {
           closeButton: true,
           panelMaxMapArea: 0,
-          //minWidth: 200,
+          autoPan: false,
           minHeight: 55
         });
         balloon.options.setParent(bigmap.options);
