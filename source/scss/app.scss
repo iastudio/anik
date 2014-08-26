@@ -26,6 +26,7 @@
 @import "bar";
 @import "slider";
 @import "scrollbars";
+@import "inner";
 
 // Elements
 @import "header";
@@ -81,8 +82,7 @@ a[href^=tel]{
 }
 
 h1, h2, h3, h4, h5, p {
-	color: #000;
-	margin-bottom: 18px;
+	margin-bottom: rem-calc(18px);
 }
 
 h1, h2, h3, h4, h5 {
@@ -90,15 +90,23 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	font-size: 24px;
+	font-size: rem-calc(30px);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #020200;
 }
 
 h2 {
-	font-size: 20px;
+	font-size: rem-calc(18px);
+  font-weight: 700;
+  color: #1C73BF;
+  text-transform: uppercase;
 }
 
 h3 {
-	font-size: 16px;
+	font-size: rem-calc(17px);
+  text-transform: uppercase;
+  color: #533204;
 }
 
 p {
@@ -122,9 +130,10 @@ a, input, textarea, .btn {
 }
 
 a {
-	color: #000;
+	color: #1C73BF;
+  text-decoration: underline;
 	&:hover {
-		color: lighten(#000, 20%);
+		text-decoration: none;
 	}
 }
 

@@ -1,0 +1,84 @@
+- var active = 1
+- var pageName = 'Новости и акции'
+include includes/settings
+doctype html
+html(lang='ru').no-js
+  head
+    include includes/head
+  body(onload="loaded()")
+    .page-wrap
+      include includes/header
+      include includes/nav
+      .container.innercontent
+        aside.sidebar
+          .sidebar__nav.sidebar--taglist
+            .sidebar__nav__inner
+              nav
+                h2 Поиск по тегам
+                ul
+                  li.tag-size-b: a(href="#") Акция
+                  li.tag-size-c: a(href="#") Категория Б
+                  li.tag-size-a: a(href="#") Скидки
+                  li.tag-size-d: a(href="#") Обучение
+                  li.tag-size-h: a(href="#") Акция
+                  li.tag-size-b: a(href="#") Категория Б
+                  li.tag-size-f: a(href="#") Скидки
+                  li.tag-size-e: a(href="#") Обучение
+                  li.tag-size-d: a(href="#") автодром
+                  li.tag-size-a: a(href="#") автошкола
+                  li.tag-size-c: a(href="#") инструктор
+        main.content
+          h1 Новости и акции
+          .breadcrumbs
+            ul
+              li: a(href="#") Главная
+              li: a(href="#") Новости и акции
+          .news
+            ul
+              li
+                .news__image
+                  img(src="i/placeholders/placeholder-news-1.jpg")
+                .news__content
+                  span 15 мая 2014
+                  h5 Семинар-тренинг Громоковского Г.Б.
+                  p У Вас есть уникальная возможность принять участие в семинаре Геннадия Громоковского «Защитные методы поведения на дороге» для руководителей
+                  p Теги: <a href="#">Акция</a>, <a href="#">Экзамен в ГАИ</a>
+                  .btn Читать полностью
+              li
+                .news__image
+                  img(src="i/placeholders/placeholder-news-2.jpg")
+                .news__content
+                  span 15 мая 2014
+                  h5 Внимание! Изменение маршрута городских занятий!
+                  p Возможность принять участие в семинаре Геннадия Громоковского «Защитные методы поведения на дороге»  для руководителей
+                  p Теги: <a href="#">Акция</a>, <a href="#">Экзамен в ГАИ</a>
+                  .btn Читать полностью
+              li
+                .news__image
+                  img(src="i/placeholders/placeholder-news-1.jpg")
+                .news__content
+                  span 15 мая 2014
+                  h5 Семинар-тренинг Громоковского Г.Б.
+                  p У Вас есть уникальная возможность принять участие в семинаре Геннадия Громоковского «Защитные методы поведения на дороге» для руководителей
+                  p Теги: <a href="#">Акция</a>, <a href="#">Экзамен в ГАИ</a>
+                  .btn Читать полностью
+              li
+                .news__image
+                  img(src="i/placeholders/placeholder-news-2.jpg")
+                .news__content
+                  span 15 мая 2014
+                  h5 Внимание! Изменение маршрута городских занятий!
+                  p Возможность принять участие в семинаре Геннадия Громоковского «Защитные методы поведения на дороге»  для руководителей
+                  p Теги: <a href="#">Акция</a>, <a href="#">Экзамен в ГАИ</a>
+                  .btn Читать полностью
+              li
+                .news__image
+                  img(src="i/placeholders/placeholder-news-1.jpg")
+                .news__content
+                  span 15 мая 2014
+                  h5 Семинар-тренинг Громоковского Г.Б.
+                  p У Вас есть уникальная возможность принять участие в семинаре Геннадия Громоковского «Защитные методы поведения на дороге» для руководителей
+                  p Теги: <a href="#">Акция</a>, <a href="#">Экзамен в ГАИ</a>
+                  .btn Читать полностью
+      include includes/footer
+    include includes/tail

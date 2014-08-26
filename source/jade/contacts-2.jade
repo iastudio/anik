@@ -1,0 +1,30 @@
+- var active = 1
+- var pageName = 'Карта офисов и классов'
+include includes/settings
+doctype html
+html(lang='ru').no-js
+  head
+    include includes/head
+  body(onload="loaded()")
+    .page-wrap
+      include includes/header
+      include includes/nav
+      #bigmap.bigmap
+      .container.innercontent.innercontent--withmap
+        aside.sidebar
+          .sidebar__nav
+            .sidebar__nav__inner
+              nav
+                h2 Контакты
+                ul
+                  li.active: a(href="#") Карта офисов и классов
+                  li: a(href="#") Контакты
+        main.content
+          h1 Контакты
+          .breadcrumbs
+            ul
+              li: a(href="#") Главная
+              li Карта офисов и классов
+
+      include includes/footer
+    include includes/tail

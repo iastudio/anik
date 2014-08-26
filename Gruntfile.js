@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         },
-        files: ['dest/**/*'],
+        files: ['dest/css/*.css', 'dest/js/*.js', 'dest/*.html'],
       },
       js: {
         files: ['source/js/**/*.js'],

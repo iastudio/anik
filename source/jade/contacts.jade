@@ -1,0 +1,126 @@
+- var active = 1
+- var pageName = 'Контакты'
+include includes/settings
+doctype html
+html(lang='ru').no-js
+  head
+    include includes/head
+  body(onload="loaded()")
+    .page-wrap
+      include includes/header
+      include includes/nav
+      .container.innercontent
+        aside.sidebar
+          .sidebar__nav
+            .sidebar__nav__inner
+              nav
+                h2 Контакты
+                ul
+                  li: a(href="#") Карта офисов и классов
+                  li.active: a(href="#") Контакты
+          .banner Нам 22 года
+        main.content
+          h1 Контакты
+          .breadcrumbs
+            ul
+              li: a(href="#") Главная
+              li Контакты
+
+          .contacts__item
+            h2 ОФИС на Алеутской, 11
+            p Учебный  класс и офис расположены вблизи остановки общественного транспорта "Ж/д  вокзал", в здании "ПриморГражданПроекта."
+            #map-1.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |Алеутская, 11<br>Офис по работе с клиентами находится рядом с учебным классом на 8-ом этаже, каб. 805/5
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+          .contacts__item
+            h2 ОФИС на Светланской, 147
+            p Офис и учебный класс на ул. Светланской, 147 расположены вблизи остановки общественного транспорта "Авангард" в здании "Центра народной культуры"
+            #map-2.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |Светланская, 147<br>Офис № 5 расположен на 1-ом этаже, учебный класс на 3-ем этаже здания.
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+          .contacts__item
+            h2 ОФИС на Калинина, 230
+            p Офис и учебный класс расположены вблизи остановки общественного транспорта "Диомид"
+            #map-3.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |Калинина, 230
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+          .contacts__item
+            h2 ОФИС на Партизанском пр-те, 36
+            p Офис и учебный класс расположены вблизи остановки общественного транспорта  "Инструментальный завод" по адресу Партизанский пр-т 36.
+            #map-4.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |Партизанский пр-т, 36<br>2ой этаж, офис 10 (вход со стороны подъездов)
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+          .contacts__item
+            h2 ОФИС на 100 лет Владивостоку, 40 а
+            p Офис и учебный класс, расположены вблизи остановки общественного транспорта "100-летие Владивостоку"
+            #map-5.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |пр. 100 лет Владивостоку, 40 а<br>В торговом центре "Зенит" на 4-ом этаже.
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+          .contacts__item
+            h2 ОФИС на Авроровской, 20
+            #map-6.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |ул. Авроровская, 20
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+          .contacts__item
+            h2 Автодром на западной, 29
+            #map-7.contacts__item__map
+            .contacts__item__info
+              i.icon-pin
+              |Западная, 29
+            .contacts__item__info
+              i.icon-phone
+              |8 (423) 2-205-203, 273-07-08
+            .contacts__item__info
+              i.icon-time
+              |с 10:00 до 19:00 (Запись на обучение, консультация) <a href="#">Расписание занятий</a>
+
+      include includes/footer
+    include includes/tail

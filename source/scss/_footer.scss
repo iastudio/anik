@@ -6,6 +6,9 @@ footer {
   min-height: 120px;
   margin-top: 20px;
 
+  position: relative;
+  z-index: 1;
+
   @include gridle_state( sm ) {
     min-height: 510px;
     margin-top: 40px;
@@ -86,7 +89,7 @@ footer {
   .footer__col {
 
     @include gridle_hide ( xs );
-    // @include gridle_show ( sm );
+    @include gridle_show ( sm );
     @include gridle ( 4 , sm );
     @include gridle ( 2 , md );
     // @include gridle_clear_each( 3, right, sm );

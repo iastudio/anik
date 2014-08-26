@@ -4,6 +4,11 @@
   padding: 0;
   position: relative;
 
+  @include gridle_state ( sm ) {
+    @include box-shadow(0 20px 50px rgba(0,1,0,.3));
+    z-index: 1;
+  }
+
   &:before, &:after {
     display: block;
     content: ' ';
