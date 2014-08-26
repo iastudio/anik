@@ -22,6 +22,32 @@ function loaded () {
 
 $(function(){
 
+  $('.contacts__item__showmap').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().find('.contacts__item__map').addClass('contacts__item__map--fullscreen');
+    $(this).parent().find('.contacts__item__hidemap').addClass('active');
+  });
+
+  $('.contacts__item__hidemap').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().find('.contacts__item__map').removeClass('contacts__item__map--fullscreen');
+    $(this).removeClass('active');
+  });
+
+  ///
+
+  $('.contacts__item__showBigmap').on('click', function(e) {
+    e.preventDefault();
+    $('#bigmap').addClass('bigmap--fullscreen');
+    $('.contacts__item__hideBigmap').addClass('active');
+  });
+
+  $('.contacts__item__hideBigmap').on('click', function(e) {
+    e.preventDefault();
+    $('#bigmap').removeClass('bigmap--fullscreen');
+    $(this).removeClass('active');
+  });
+
 
   /////////////
   //   MAP   //
@@ -44,7 +70,7 @@ $(function(){
     if ($('.contacts__item__map').length > 0) {
 
       for (var i = 1; i <= places.length; ++i) {
-        var temp = new ymaps.Map('map-' + i, { center: [places[i-1].latitude, places[i-1].longitude], zoom: mapZoom });
+        var temp = new ymaps.Map('map-' + i, { center: [places[i-1].latitude, places[i-1].longitude], zoom: mapZoom, controls: ['zoomControl', 'trafficControl', 'geolocationControl', 'searchControl', 'typeSelector'] });
         var tempPlacemark = new ymaps.Placemark(temp.getCenter(), {});
         temp.geoObjects.add(tempPlacemark);
         temp.behaviors.disable('scrollZoom');
@@ -56,12 +82,15 @@ $(function(){
 
       var geolocation = ymaps.geolocation;
 
-      bigmap = new ymaps.Map('bigmap', { center: [43.125564, 131.879412], zoom: 13 });
+      bigmap = new ymaps.Map('bigmap', { center: [43.125564, 131.879412], zoom: 13, controls: ['zoomControl', 'trafficControl', 'geolocationControl', 'searchControl', 'typeSelector'] });
       bigmap.behaviors.disable('scrollZoom');
 
       for (var i = 1; i <= places.length; ++i) {
         var balloon = new ymaps.Balloon(bigmap, {
-          closeButton: true
+          closeButton: true,
+          panelMaxMapArea: 0,
+          //minWidth: 200,
+          minHeight: 55
         });
         balloon.options.setParent(bigmap.options);
         balloon.options.closeButton
