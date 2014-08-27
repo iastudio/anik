@@ -22,8 +22,19 @@ function loaded () {
 
 $(function(){
 
-  FastClick.attach(document.body);
+  ////////////////////
+  //   MDOAL INIT   //
+  ////////////////////
 
+  $('.modal-open').magnificPopup({
+    type: 'inline'
+  });
+
+  ////////////////////////
+  //   FASTCLICK INIT   //
+
+  ////////////////////////
+  FastClick.attach(document.body);
 
   /////////////
   //   MAP   //
