@@ -1,3 +1,14 @@
+html.no-svg {
+  header {
+    .header__logo {
+      background-image: url(../i/logo.png);
+      background-size: 100%;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
 header {
 
   min-height: 65px;
@@ -5,11 +16,23 @@ header {
 
   .header__logo {
     display: block;
-    background-image: url(../i/logo.png);
-    background-image: url(../i/logo.svg), none;
-    background-size: 100%;
-    background-position: left center;
-    background-repeat: no-repeat;
+
+    #logo {
+      width: 100%;
+      height: auto;
+      #logo__badge {
+        transition: all .5s ease;
+        transform-style: preserve-3d;
+        transform-origin: center center;
+      }
+    }
+    &:hover {
+      #logo {
+        #logo__badge {
+          transform: rotateY(360deg);
+        }
+      }
+    }
   }
 
   .header__contacts {
@@ -48,6 +71,11 @@ header {
       .fa {
         margin-right: 5px;
         color: #333333;
+
+        &.inactive {
+          color: #CECECE !important;
+          pointer-events: none;
+        }
       }
       a {
         color: #0077bf;
@@ -59,6 +87,11 @@ header {
         border-bottom: 1px dashed;
         margin-right: 20px;
         line-height: 1;
+
+        &.inactive {
+          color: #CECECE !important;
+          pointer-events: none;
+        }
 
         &:hover {
           color: #999999;

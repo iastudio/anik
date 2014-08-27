@@ -121,9 +121,10 @@ body {
               font-weight: 700;
               @include text-shadow(0 1px 0 rgba(255,234,136,.73));
               text-transform: uppercase;
-              @include background-image(linear-gradient(to bottom, #6f4804 0%, #8f6105 100%));
-              background-clip: text;
-              text-fill-color: transparent;
+              //background-color: #6f4804;
+              //@include background-image(linear-gradient(to bottom, #6f4804 0%, #8f6105 100%));
+              //background-clip: text;
+              //text-fill-color: transparent;
 
               @include gridle_state( sm ) {
                 font-size: rem-calc(36px);

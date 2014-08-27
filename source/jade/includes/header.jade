@@ -2,6 +2,7 @@ header.header
   .container
     .grid-12.grid-sm-5.grid-md-5.header__leftside
       a.header__logo(href="/")
+        include ./logo
     .grid-12.grid-sm-5.push-sm-2.grid-md-7.push-md-0.header__rightside
       .header__contacts.grid-sm-12.grid-md-5.hide-xs
         .header__contacts__phone
@@ -10,9 +11,9 @@ header.header
           h2 8 (423) 2-205-203
         .header__contacts__links
           i.fa.fa-refresh
-          a(href="#") Заказать звонок
-          i.fa.fa-user
-          a(href="#") Кабинет
+          a.modal-open(href="#callback-modal") Заказать звонок
+          i.fa.fa-user.inactive
+          a.inactive(href="#") Кабинет
 
       .grid-sm-12.grid-md-7
-        a.btn(href="#") ЗАПИСАТЬСЯ НА ОБУЧЕНИЕ
+        a.modal-open.btn(href="#signup-modal") ЗАПИСАТЬСЯ НА ОБУЧЕНИЕ
