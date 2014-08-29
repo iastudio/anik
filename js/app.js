@@ -1,4 +1,6 @@
 
+var carouselAuto = true, carouselInterval = 4000;
+
 ///////////////////////
 //   CAROUSEL INIT   //
 ///////////////////////
@@ -208,6 +210,12 @@ $(function(){
     else
       carouselScroll.next(time);
   });
+
+  if (carouselAuto) {
+    setInterval(function(){
+      $('#carousel .carousel__nav--right').click();
+    }, carouselInterval);
+  }
 
 });
 
