@@ -176,6 +176,7 @@ body {
         top: 50%;
         margin-top: -135px;
         display: none;
+        transition: all .2s ease-out;
 
         @include gridle_state( md ) {
           display: block;
@@ -201,18 +202,26 @@ body {
         }
 
         &.carousel__nav--left {
-          left: -47px;
+          left: -100px;
           text-indent: 25px;
           &:before {
             content: "\f053";
           }
         }
         &.carousel__nav--right {
-          right: -47px;
+          right: -100px;
           text-indent: -25px;
           &:before {
             content: "\f054";
           }
+        }
+      }
+      &:hover {
+        .carousel__nav--left {
+          left: -47px;
+        }
+        .carousel__nav--right {
+          right: -47px;
         }
       }
     }

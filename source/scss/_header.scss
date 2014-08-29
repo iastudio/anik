@@ -1,3 +1,4 @@
+
 html.no-svg {
   header {
     .header__logo {
@@ -49,9 +50,38 @@ header {
       .phone-icon {
         display: block;
         float: left;
-        width: 35px; height: 45px;
+        width: 35px; height: 56px;
+        overflow: hidden;
         font-size: rem-calc(65px);
         color: #0077C0;
+        position: relative;
+        top: 8px;
+
+        &:hover {
+          &:after {
+            top: 17px;
+          }
+        }
+
+        &:before {
+          position: relative;
+          z-index: 1;
+          top: -8px;
+        }
+
+        &:after {
+          content: ' ';
+          display: block;
+          position: absolute;
+          background: url('../i/logo.png') left top no-repeat;
+          width: 16px;
+          height: 17px;
+          background-size: 70px;
+          top: -50px;
+          left: 5px;
+          transition: all .5s ease;
+          z-index: 0;
+        }
       }
 
       small {
@@ -120,18 +150,61 @@ header {
     height: 2rem;
     @include border-radius(15px);
     @include background-clip(padding-box);
-    background-color: #db1921;
-    @include box-shadow(0 1px 0 #cb3731, inset 0 0 8px #b91015, 0 1px 0 #93494b, 0 0 3px #8f2c31, 0 4px 0 #B81A1C);
-    @include background-image(linear-gradient(to bottom, #db1921 0%, #d91921 100%));
+    background: transparent;
+    //background-color: #db1921;
+    //@include box-shadow(0 1px 0 #cb3731, inset 0 0 8px #b91015, 0 1px 0 #93494b, 0 0 3px #8f2c31, 0 4px 0 #B81A1C);
+    //@include background-image(linear-gradient(to bottom, #db1921 0%, #d91921 100%));
+
+    transition: all .3s ease-out;
+    box-shadow: 0 0 0 0 rgba(0,0,0,.19);
+
+    overflow: hidden;
+
     &:hover {
       @include text-shadow(0 1px 0 rgba(0,0,0,.18));
       color: #FFF;
-      background-color: #7ECE31;
-      @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 4px 0 #569E13);
-      @include background-image(linear-gradient(to bottom, #71BB31 0%, #7ECF31 100%));
+      //background-color: #7ECE31;
+      //@include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 4px 0 #569E13);
+      //@include background-image(linear-gradient(to bottom, #71BB31 0%, #7ECF31 100%));
       &:active {
-        @include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 2px 0 #569E13);
+        //@include box-shadow(0 1px 0 #74BB43, inset 0 0 8px #6EB82D, 0 1px 0 #74BB43, 0 0 3px #BDCEB4, 0 2px 0 #569E13);
         //top: 2px;
+        box-shadow: 0 17px 50px 0 rgba(0,0,0,.19);
+      }
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 0;
+      width: 100%; height: 100%;
+      content: ' ';
+      @include background-image(linear-gradient(to bottom, #db1921 0%, #d91921 100%));
+      z-index: -2;
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding-top: 0;
+      width: 0;
+      height: 0;
+      border-radius: 100%;
+      transition: all .5s ease-out;
+      transform: translate(-50%, -50%);
+      content: '';
+      @include background-image(linear-gradient(to bottom, #71BB31 0%, #7ECF31 100%));
+      z-index: -1;
+    }
+
+    &:hover {
+
+      &:before {
+        width: 500px; height: 500px;
       }
     }
   }
