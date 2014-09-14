@@ -1,0 +1,100 @@
+- var active = 1
+- var pageName = 'Обучение'
+include includes/settings
+doctype html
+html(lang='ru').no-js
+  head
+    include includes/head
+  body(onload="loaded()")
+    .page-wrap
+      include includes/header
+      include includes/nav
+      .container.innercontent
+        aside.sidebar
+          .sidebar__nav
+            .sidebar__nav__inner
+              nav
+                h2 Обучение
+                ul
+                  li
+                    a(href="#") Процесс обучения
+                    ul.children
+                      li: a(href="#") Теория
+                      li
+                        a(href="#") Практика
+                        ul.subchildren
+                          li: a(href="#") Автодром
+                          li: a(href="#") Город
+                      li: a(href="#") Внутренний экзамен
+                      li: a(href="#") Ответы на вопросы
+                  li: a(href="#") Стоимость
+                  li: a(href="#") Документы
+                  li: a(href="#") Дополнительные услуги
+        main.content
+          h1 Калькулятор
+          .breadcrumbs
+            ul
+              li: a(href="#") Главная
+              li: a(href="#") Обучение
+              li: a(href="#") Стоимость
+              li Калькулятор
+          .calc
+            .calc__container
+              .calc__col
+                label Место обучения:
+                select#select-place
+                  option(value="0", selected, disabled) Выбрать
+                  option(value="1") пр-т. 100 лет Владивостоку, 40а
+                  option(value="2") Партизанский пр-т, 36
+                  option(value="3") ул. Алеутская, 11
+                  option(value="4") ул. Светланская, 147
+                  option(value="5") ул. Калинина, 230
+
+              .calc__col
+                label Форма обучения:
+                select#select-type
+                  option(value="0", selected, disabled) Выбрать
+                  option(value="1") Группа рабочего дня
+                  option(value="2") Группа выходного дня
+
+              .calc__col
+                label Категория:
+                select#select-cat
+                  option(value="0", selected, disabled) Выбрать
+                  option(value="1") А
+                  option(value="2") В
+                  option(value="3") С
+                  option(value="4") АВ
+                  option(value="5") AC
+                  option(value="6") BC
+                  option(value="7") ABC
+
+              .calc__col
+                label Программа обучения:
+                select#select-scheme
+                  option(value="0", selected, disabled) Выбрать
+                  option.mkpp(value="1") Механическая коробка передач
+                  option.akpp(value="2") Автоматическая коробка передач
+            p.calc__desc Автошкола предоставляет самый полный комплекс основных и дополнительных услуг. В автошколе работает медкомиссия и автошкольный фотограф. К услугам учеников автокурсов современные классы авто-тренажеров. Вы можете обучаться вождению с инструктором на автомобилях отечественного и иностранного производства, в том числе с АКПП. Наши курсы вождения организуют сдачу экзамена в ГИБДД на автомобилях автошколы. Автошкола предлагает сдачу экзамена ПДД онлайн по интернету.
+            a.btn(href="#") Посмотреть полное описание программы
+            .result
+              .result-1
+              .result-2
+            .well.calc__additional
+              h2 Дополнительно
+              p
+                input.inactive(type="checkbox", id="check-docs", checked, disabled)
+                label(for="check-docs") Оформление документов
+                br
+                input.inactive(type="checkbox", id="check-car", checked, disabled)
+                label(for="check-car") Подача транспорта на экзамен
+                br
+                input(type="checkbox", id="check-med")
+                label(for="check-med") Медкомиссия
+            .calc__total
+              h2
+              span Стоимость указана без учета скидок. <a href="#">Как получить скидку?</a>
+            p: a.modal-open.btn.suppa-btn(href="#signup-modal") ЗАПИСАТЬСЯ НА ОБУЧЕНИЕ
+
+      include includes/footer
+    include includes/tail

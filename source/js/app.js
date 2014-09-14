@@ -220,3 +220,170 @@ $(function(){
 });
 
 
+//////////////
+//   CALC   //
+//////////////
+
+var theoryA =    {price: 6120, title: 'Теория А'},
+    theoryB1 =   {price: 11050, title: 'Теория (обучение на 1 категорию)'},
+    theoryB2 =   {price: 11650, title: 'Теория (обучение на 2+ категории)'},
+    theoryBB1 =  {price: 11350, title: 'Теория (обучение на 1 категорию)'},
+    theoryBB2 =  {price: 12150, title: 'Теория (обучение на 2+ категории)'},
+    practAM =    {price: 15300, title: 'Категория А (МКПП)', hours: 18},
+    practBM =    {price: 35560, title: 'Категория B (МКПП)', hours: 56},
+    practBA =    {price: 34280, title: 'Категория B (АКПП)', hours: 54},
+    practC =     {price: 35550, title: 'Категория C (МКПП) переподготовка', hours: 38},
+    addPrices =  {docs: 2150, car: {a: 400, b: 1000, c: 1300}, med: 1900};
+
+var tempOption, carPriceFinal;
+
+function calculate() {
+
+  var sum = 0;
+
+  var place = $('#select-place').val();
+
+  var placeName = $('#select-place option:selected').html();
+  var typeName = $('#select-type option:selected').html();
+  var schemeName = $('#select-scheme option:selected').html();
+  var catName = $('#select-cat option:selected').html();
+
+  var type = $('#select-type').val();
+  if (type === null || type == 0) {
+    $('.result .result-1').html('<i class="fa fa-minus-circle"></i> Выберите форму обучения');
+    return false;
+  }
+
+  var cat = $('#select-cat').val();
+  if (cat === null || cat == 0) {
+    $('.result .result-1').html('<i class="fa fa-minus-circle"></i> Выберите категорию');
+    return false;
+  }
+
+  var scheme = $('#select-scheme').val();
+  if (scheme === null || scheme == 0) {
+    $('.result .result-1').html('<i class="fa fa-minus-circle"></i> Выберите программу обучения');
+    return false;
+  }
+
+  var fullPrice = calcTheory(type, cat) + calcPractice(scheme, cat);
+
+  $('.result .result-1').html( '<strong>Стоимость обучения:</strong> ' + fullPrice + ' рублей.' + '<br>' +
+                     '<strong>Место обучения:</strong> ' + placeName + '<br>' +
+                     '<strong>Категория:</strong> ' + catName );
+
+  $('.result .result-2').html( '<strong>Форма обучения:</strong> ' + typeName + '<br>' +
+                     '<strong>Программа обучения:</strong> ' + schemeName );
+
+  $('.calc__additional').show();
+
+  if ( $('#check-docs').prop('checked') )
+    fullPrice += addPrices.docs;
+  if ( $('#check-med').prop('checked') )
+    fullPrice += addPrices.med;
+  if ( $('#check-car').prop('checked') )
+    fullPrice += carPriceFinal;
+
+  $('.calc__total').show();
+
+  $('.calc__total h2').html( 'Итого ' + fullPrice + ' руб.' );
+
+}
+
+function calcTheory(type, cat) { // Расчет теории
+  switch (cat) {
+    case '1':
+      return theoryA.price;
+    case '2':
+    case '3':
+      if (type == '2')
+        return theoryB1.price;
+      if (type == '1')
+        return theoryB2.price;
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+      if (type == '2')
+        return theoryBB2.price;
+      if (type == '1')
+        return theoryBB1.price;
+  }
+}
+
+function calcPractice(trans, cat) {
+  switch (cat) {
+    case '1':
+      carPriceFinal = addPrices.car.a;
+      return practAM.price;
+    case '2':
+      carPriceFinal = addPrices.car.b;
+      if (trans == '1')
+        return practBM.price;
+      if (trans == '2')
+        return practBA.price;
+    case '3':
+      carPriceFinal = addPrices.car.c;
+      return practC.price;
+    case '4':
+      carPriceFinal = addPrices.car.a + addPrices.car.b;
+      if (trans == '1')
+        return practAM.price + practBM.price;
+      if (trans == '2')
+        return practBA.price + practAM.price;
+    case '5':
+      carPriceFinal = addPrices.car.a + addPrices.car.c;
+      return practAM.price + practC.price;
+    case '6':
+      carPriceFinal = addPrices.car.b + addPrices.car.c;
+      if (trans == '1')
+        return practBM.price + practC.price;
+      if (trans == '2')
+        return practBA.price + practC.price;
+    case '7':
+      carPriceFinal = addPrices.car.a + addPrices.car.b + addPrices.car.c;
+      if (trans == '1')
+        return practAM.price + practBM.price + practC.price;
+      if (trans == '2')
+        return practBA.price + practC.price + practAM.price;
+  }
+}
+
+function setType(type) {
+  if (type == 1) { // МКПП
+    //$('#select-scheme option.akpp').attr('disabled', 'disabled');
+    if (tempOption === undefined)
+      tempOption = $('#select-scheme option.akpp');
+    $('#select-scheme option.akpp').remove();
+  }
+  if (type == 2) { // АКПП
+    //$('#select-scheme option.akpp').removeAttr('disabled');
+    $('#select-scheme').append( tempOption );
+  }
+}
+
+$('.calc select').on( "change", function(){
+  setType(1);
+  switch ( $('#select-cat').val() ) {
+    case '1':
+    case '3':
+    case '5':
+      setType(1);
+      break;
+    case '2':
+    case '4':
+    case '6':
+    case '7':
+      setType(2);
+      break;
+  }
+  calculate();
+});
+
+$('.calc__additional input').on( "change", function(){
+  calculate();
+});
+
+$(function(){
+ calculate();
+});
